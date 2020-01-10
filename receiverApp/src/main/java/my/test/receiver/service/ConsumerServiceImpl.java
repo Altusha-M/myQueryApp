@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-
 @Service
-public class ConsumerServiceImpl {
+public class ConsumerServiceImpl implements ConsumerService {
 
     private final Logger logger = LoggerFactory.getLogger(ConsumerServiceImpl.class);
 
@@ -20,8 +18,13 @@ public class ConsumerServiceImpl {
         this.myMessageService = myMessageService;
     }
 
+    /**
+     * receive message from kafka topic and save it to db
+     *
+     * @param message message to save in db
+     */
     @KafkaListener(topics = "totopic", groupId = "group_id")
-    public void consume(String message) throws IOException {
+    public void consume(String message) {
         logger.info(String.format("#### -> Consumed message -> %s", message));
         myMessageService.createMessage(message);
     }

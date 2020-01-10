@@ -12,19 +12,13 @@
             let form = document.createElement('form');
             form.innerHTML = 'Your message:<input id="text" name="q" placeholder="Enter your message here"><br>' +
                 '<button id="click" name="submit" value="SEND">Submit to send</button>';
-            // перед отправкой формы, её нужно вставить в документ
-            // form.innerHTML = '';
             document.body.append(form);
-            // let subm = document.createElement('form');
-            // document.body.append(form);
-            // document.body.append(subm);
-            // let value = document.getElementById("txt").value;
             document.getElementById("click").onclick = function () {
                 let xhr = new XMLHttpRequest();
                 xhr.open("POST", "api", true);
                 xhr.setRequestHeader("Content-type", "application/json");
                 xhr.send(JSON.stringify({
-                    messageText : document.getElementById("text").value
+                    messageText: document.getElementById("text").value
                 }));
                 alert(xhr.toString());
             };

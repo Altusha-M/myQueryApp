@@ -21,8 +21,9 @@ public class SendController {
 
     /**
      * <p>
-     *     This method catch POST http request and send message into SenderService
+     * This method catch POST http request and send message into SenderService
      * </p>
+     *
      * @param message deserialized json of message from html form
      */
     @PostMapping

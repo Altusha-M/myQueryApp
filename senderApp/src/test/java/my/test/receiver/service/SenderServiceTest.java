@@ -11,7 +11,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -39,6 +39,5 @@ class SenderServiceTest {
                         ArgumentMatchers.anyString(),
                         ArgumentMatchers.eq(myMessage.getMessageText())
                 );
-        int i = 1;
     }
 }
