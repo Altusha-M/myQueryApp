@@ -15,10 +15,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-class SenderServiceTest {
+class SenderServiceImplTest {
 
     @Autowired
-    private SenderService senderService;
+    private SenderServiceImpl senderService;
 
     @MockBean
     private KafkaTemplate<String, String> kafkaTemplate;
